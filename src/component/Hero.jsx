@@ -1,6 +1,10 @@
+
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -22,12 +26,16 @@ const Hero = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log("Form Data:", formData);
+    navigate("/thank-you", {
+      state: {
+        formData,
+      },
+    });
   };
 
   return (
     <section className="relative overflow-hidden bg-[#001F2B] text-white lg:flex lg:min-h-[min(58vh,620px)] lg:items-center">
-   
+      {/* Background */}
       <div className="absolute inset-0">
         <img
           src="https://res.cloudinary.com/di93stsbz/image/upload/f_auto,q_auto,c_limit,w_1920/v1788261844/cms-sections/boqim5njgmm9pfzyo8ne.jpg"
@@ -38,26 +46,23 @@ const Hero = () => {
         />
       </div>
 
-     
       <div className="absolute inset-0 bg-gradient-to-br from-[#001320]/72 via-[#012A3A]/50 to-[#01415A]/26" />
 
-  
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_80%_at_18%_45%,rgba(0,15,26,0.55),transparent_70%)]" />
 
-     
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_60%,rgba(0,139,185,0.20),transparent_45%)]" />
 
-      
+      {/* Content */}
       <div className="relative z-10 mx-auto w-full max-w-[1440px] px-5 py-10 sm:px-8 sm:py-12 lg:px-10 lg:py-8">
         <div className="grid w-full grid-cols-1 items-center gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-10">
-          
+
+          {/* Left */}
           <div className="max-w-2xl">
             <h1 className="mb-3 text-[35px]/[1.15] font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
               Scale Your Business With The Best Digital Marketing Agency in
               Delhi
             </h1>
 
-           
             <svg
               width="120"
               height="10"
@@ -80,7 +85,6 @@ const Hero = () => {
               agency in Delhi.
             </p>
 
-           
             <div className="hidden flex-wrap gap-3 md:flex">
               <a
                 href="/contact-us/"
@@ -91,7 +95,7 @@ const Hero = () => {
             </div>
           </div>
 
-        
+          {/* Form */}
           <div
             id="quote"
             className="w-full max-w-md justify-self-center rounded-lg border border-gray-200 bg-white/95 p-6 text-gray-900 shadow-[0_20px_50px_rgba(0,19,32,0.35)] backdrop-blur-sm lg:justify-self-end"
@@ -105,7 +109,7 @@ const Hero = () => {
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-3">
-           
+              {/* Honeypot */}
               <input
                 type="text"
                 tabIndex="-1"
@@ -115,62 +119,57 @@ const Hero = () => {
                 aria-hidden="true"
               />
 
-            
+              {/* Name + Email */}
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                 <input
                   type="text"
                   name="name"
                   placeholder="Your Name*"
-                  aria-label="Your name"
                   required
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full rounded-sm border border-gray-200 px-4 py-2.5 text-sm text-gray-900 outline-none transition-shadow placeholder:text-gray-500 focus:ring-2 focus:ring-[#0075a2]"
+                  className="w-full rounded-sm border border-gray-200 px-4 py-2.5 text-sm text-gray-900 outline-none placeholder:text-gray-500 focus:ring-2 focus:ring-[#0075a2]"
                 />
 
                 <input
                   type="email"
                   name="email"
                   placeholder="you@company.com*"
-                  aria-label="Your email address"
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full rounded-sm border border-gray-200 px-4 py-2.5 text-sm text-gray-900 outline-none transition-shadow placeholder:text-gray-500 focus:ring-2 focus:ring-[#0075a2]"
+                  className="w-full rounded-sm border border-gray-200 px-4 py-2.5 text-sm text-gray-900 outline-none placeholder:text-gray-500 focus:ring-2 focus:ring-[#0075a2]"
                 />
               </div>
 
-             
+              {/* Phone + Company */}
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                 <input
                   type="tel"
                   name="phone"
                   placeholder="+91 98765 43210"
-                  aria-label="Your phone number"
                   pattern="^\+?[0-9]{10,15}$"
                   value={formData.phone}
                   onChange={handleChange}
-                  className="w-full rounded-sm border border-gray-200 px-4 py-2.5 text-sm text-gray-900 outline-none transition-shadow placeholder:text-gray-500 focus:ring-2 focus:ring-[#0075a2]"
+                  className="w-full rounded-sm border border-gray-200 px-4 py-2.5 text-sm text-gray-900 outline-none placeholder:text-gray-500 focus:ring-2 focus:ring-[#0075a2]"
                 />
 
                 <input
                   type="text"
                   name="company"
                   placeholder="Company Name"
-                  aria-label="Your company name"
                   value={formData.company}
                   onChange={handleChange}
-                  className="w-full rounded-sm border border-gray-200 px-4 py-2.5 text-sm text-gray-900 outline-none transition-shadow placeholder:text-gray-500 focus:ring-2 focus:ring-[#0075a2]"
+                  className="w-full rounded-sm border border-gray-200 px-4 py-2.5 text-sm text-gray-900 outline-none placeholder:text-gray-500 focus:ring-2 focus:ring-[#0075a2]"
                 />
               </div>
 
-            
+              {/* Service */}
               <select
                 name="service"
-                aria-label="Which service are you interested in"
                 value={formData.service}
                 onChange={handleChange}
-                className="w-full rounded-sm border border-gray-200 px-4 py-2.5 text-sm text-gray-900 outline-none transition-shadow focus:ring-2 focus:ring-[#0075a2]"
+                className="w-full rounded-sm border border-gray-200 bg-white px-4 py-2.5 text-sm text-gray-900 outline-none focus:ring-2 focus:ring-[#0075a2]"
               >
                 <option value="" disabled>
                   Which service are you interested in?
@@ -211,18 +210,17 @@ const Hero = () => {
                 <option value="Other">Other</option>
               </select>
 
-        
+              {/* Message */}
               <textarea
                 name="message"
                 rows="2"
                 placeholder="Tell us about your business goals"
-                aria-label="Tell us about your business goals"
                 value={formData.message}
                 onChange={handleChange}
-                className="w-full resize-none rounded-sm border border-gray-200 px-4 py-2.5 text-sm text-gray-900 outline-none transition-shadow placeholder:text-gray-500 focus:ring-2 focus:ring-[#0075a2]"
+                className="w-full resize-none rounded-sm border border-gray-200 px-4 py-2.5 text-sm text-gray-900 outline-none placeholder:text-gray-500 focus:ring-2 focus:ring-[#0075a2]"
               />
 
-              
+              {/* Submit */}
               <button
                 type="submit"
                 className="w-full rounded-sm bg-gradient-to-r from-[#001720] to-[#0075a2] px-6 py-3 font-semibold text-white transition-opacity hover:opacity-90"
@@ -234,10 +232,10 @@ const Hero = () => {
         </div>
       </div>
 
-    
       <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-[#001F2B]/30 to-transparent" />
     </section>
   );
 };
 
 export default Hero;
+

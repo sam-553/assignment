@@ -21,6 +21,7 @@ import EmailMarketing from "./component/EmailMarketing";
 import VideoMarketing from "./component/VideoMarketing";
 import WebsiteDevelopment from "./component/WebDev";
 import WebsitePackage from "./component/WebPackage";
+import ThankYou from "./component/Thankyou";
 
 
 const App = () => {
@@ -49,6 +50,7 @@ const App = () => {
         <Route path="/video-marketing" element={<VideoMarketing/>} />
         <Route path="/web-development" element={<WebsiteDevelopment/>} />
         <Route path="/web-packages" element={<WebsitePackage/>} />
+        <Route path="/thank-you" element={<ThankYou/>} />
 
       </Routes>
 
