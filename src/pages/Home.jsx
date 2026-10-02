@@ -10,6 +10,7 @@ import Testimonials from '../component/Testimonial'
 import BrandGrowth from '../component/BrandGrowth'
 
 import FAQ from '../component/Faq'
+import FloatingButtons from '../component/FloatingButtons'
 
 
 const Home = () => {
@@ -24,6 +25,7 @@ const Home = () => {
     <Testimonials/>
     <BrandGrowth/>
     <FAQ/>
+    <FloatingButtons/>
    </>
   )
 }
