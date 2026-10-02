@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+
+
+
+@theme {
+  --animate-marquee: marquee 72s linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+
+
+
+
+
+@theme {
+  --font-poppins: "Poppins", sans-serif;
+
+  --color-surface-tint: #f2f7f9;
+
+  --animate-marquee-left: marquee-left 80s linear infinite;
+}
+
+@keyframes marquee-left {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
